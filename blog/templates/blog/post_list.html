@@ -7,22 +7,13 @@
     <div>
       <h1><a href="/">Django Blog </a></h1>
     </div>
-
-    <div>
-      <p> published: 29.01.2018, 14:55</p>
-      <h2><a href="">My First post</a></h2>
-      <p>The most important sentence in any article is the first one.
-        If it doesn’t induce the reader to proceed to the second sentence,your article is dead.
-      </p>
-    </div>
-
-    <div>
-      <p> published: 29.01.2018, 14:55</p>
-      <h2><a href="">My Second post</a></h2>
-      <p>This is one of my personal favorites.
-        The blogosphere is often criticized as being one big echo-chamber.
-      </p>
-    </div>
+    {% for post in posts %}
+      <div>
+        <p>Published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
 
 
   </body>
